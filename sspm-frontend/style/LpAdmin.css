@@ -1,0 +1,405 @@
+/* Fade-in Effect */
+body {
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  background-color: #f7f9fc;
+  color: #333;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Styles*/
+header {
+  background: linear-gradient(135deg, #1e3a8a, #4a90e2);
+    padding: 20px 40px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Spacing */
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+header .logo span {
+  color: #ffd700;
+}
+
+header .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header .nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+header .nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+header .btn-outline {
+  border: 2px solid white;
+  color: white;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+header .btn-outline:hover {
+  background: white;
+  color: #4a90e2;
+}
+
+header .btn-outline-logout {
+  border: 2px solid white;
+  color: white;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+header .btn-outline-logout:hover {
+  background: white;
+  color: #4a90e2;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 350px;
+  background: url('../images/1.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);  /* Overlay gelap */
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative; /* Pastikan teks berada di atas overlay */
+    z-index: 1;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.hero-text p {
+  color: #d0d0d0;  
+}
+
+.hero-text .btn-gradient {
+  background: #ffd700;
+    padding: 10px 30px;
+    border-radius: 25px;
+    color: #1e3a8a;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-text .btn-gradient:hover {
+  background: #ffbb00;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 60px 20px;
+}
+
+.dashboard-overview {
+  background-color: #f0f2f5;
+  /* padding: 50px 20px; */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  /* max-width: 1200px; */
+}
+
+.dashboard h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.dashboard-card p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/*Buttons*/
+
+.btn-gradient,
+.btn-outline {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #007bff;
+  color: #007bff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* Supervisor Section */
+.supervisor-title {
+  color: #4a90e2;
+  border-bottom: 3px solid #4a90e2;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.supervisor-dashboard .supervisor-card {
+  background: linear-gradient(135deg, #1e3a8a 0%, #4a90e2 100%);
+  color: #fff;
+  border: 3px solid #4a90e2;
+}
+
+/* User Section */
+.user-title {
+  color: #28a745;
+  border-bottom: 3px solid #28a745;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.user-dashboard .user-card {
+  background: linear-gradient(135deg, #218838 0%, #28a745 100%);
+  color: #fff;
+  border: 3px solid #28a745;
+}
+
+/* Hover Effect */
+.supervisor-card:hover,
+.user-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Footer */
+footer {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.user-management,
+.security {
+  text-align: center;
+  /* Centers text */
+  padding: 60px 20px;
+  background: #f4f4f4;
+  /* Light background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Ensures everything is centered */
+  justify-content: center;
+  /* Centers vertically */
+}
+
+/* Center Buttons */
+.user-management .btn-outline,
+.security .btn-outline {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #007bff;
+  background: white;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+  /* Adds spacing between text and button */
+}
+
+/* Button Hover Effect */
+.user-management .btn-outline:hover,
+.security .btn-outline:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Header Container - Flex for alignment */
+.header-with-back {
+  background: linear-gradient(135deg, #1e3a8a, #4a90e2);
+  color: #fff;
+  padding: 15px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between; /* Text kiri, button kanan */
+  align-items: center;
+}
+
+/* Logo Styling */
+.header-content .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0; /* Remove default margin */
+}
+
+.header-content .logo span {
+  color: #ffd700;  /* Warna emas untuk "Secure Admin" */
+}
+
+/* Back Button Styling */
+.btn-back {
+  background: #fff;
+  border: 2px solid #4a90e2;
+  color: #4a90e2;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #4a90e2;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Status Styling */
+.status-active {
+  color: #28a745;       /* Hijau */
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-inactive {
+  color: #dc3545;       /* Merah */
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .dashboard-card {
+    padding: 15px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  header .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}

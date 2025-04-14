@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Sutera Secure</title>
+  <link rel="icon" href="../images/sspmlogo.png" type="image/png">
+  <link rel="stylesheet" href="../../../style/LpUser.css">
+  <link rel="stylesheet" href="../../../style/passwordGenerator.css">
+  <link rel="stylesheet" href="../../../style/encryption.css">
+  <link rel="stylesheet" href="../../../style/storePassword.css">
+  <link rel="stylesheet" href="../../../style/spinner.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <h1 class="logo">Sutera<span>Secure</span></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="../../profile.html">Profile</a></li>
+          <li><a href="#" id="logoutButton" class="btn-outline-logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>Welcome, <span id="usernameDisplay">User</span>!</h1>
+        <h2>Your Secure Digital Vault</h2>
+        <!-- <h1>Your Secure Digital Vault</h1> -->
+        <p>Keep your passwords safe and accessible with ease.</p>
+        <a href="#features" class="btn-primary-gold">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>Why Choose Sutera Secure?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <i class="fas fa-lock"></i>
+          <h3>Top-Level Encryption</h3>
+          <p>Your data is fully encrypted and secured.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-user-shield"></i>
+          <h3>Multi-Layer Protection</h3>
+          <p>We provide an extra layer of security to safeguard your passwords.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Access Anywhere</h3>
+          <p>Securely manage your passwords from any device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Tools Section -->
+  <section class="security-tools split-screen" id="security">
+    <div class="split-content">
+      <h2>Security Tools</h2>
+      <p>Enhance your security with our advanced tools. Generate secure passwords, check your password strength, and
+        encrypt your data effortlessly.</p>
+    </div>
+
+    <div class="activity-container">
+      <div class="activity-card">
+        <div class="icon">🔑</div>
+        <h3>Password Generator</h3>
+        <button class="btn-primary-blue" onclick="showActivity('password-generator')">Try Now</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="icon">🛡️</div>
+        <h3>Password Checker</h3>
+        <button class="btn-primary-blue" onclick="showActivity('password-checker')">Try Now</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="icon">🔐</div>
+        <h3>Encryption Tool</h3>
+        <button class="btn-primary-blue" onclick="showActivity('encryption')">Try Now</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="icon">✅</div>
+        <h3>Password Stored</h3>
+        <button class="btn-primary" onclick="showActivity('password-stored')">Try Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup for Activities -->
+  <div id="popup-activity" class="popup-container">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeActivity()">&times;</span>
+      <div id="activity-content">
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Is my data secure with Sutera Secure?</h3>
+        <p>Yes! We use top-tier encryption to protect all your data.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I access my passwords on different devices?</h3>
+        <p>Yes, you can securely access your passwords from any device.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How can I reset my password?</h3>
+        <p>You can reset your password from your account settings or contact support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Secure Your Digital Life?</h2>
+      <p>Choose the perfect plan for you.</p>
+      <button class="btn-primary-gold" onclick="openPopup()">Get Started</button>
+    </div>
+  </section>
+
+  <!-- Popup Pricing Catalog -->
+  <div id="popupPricing" class="popup-container">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Choose Your Plan</h2>
+      <p>Select the best plan that suits your security needs.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free Plan</h3>
+          <p class="price">RM0/month</p>
+          <ul>
+            <li>Basic Encryption</li>
+            <li>Limited Storage</li>
+            <li>Single Device Access</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card featured">
+          <h3>Premium Plan</h3>
+          <p class="price">RM4.99/month</p>
+          <ul>
+            <li>Advanced Encryption</li>
+            <li>Unlimited Storage</li>
+            <li>Multi-Device Access</li>
+            <li>Priority Support</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Business Plan</h3>
+          <p class="price">RM9.99/month</p>
+          <ul>
+            <li>Enterprise-Level Security</li>
+            <li>Unlimited Storage</li>
+            <li>Multi-User Access</li>
+            <li>Dedicated Support</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="btn-primary close-btn-bottom" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Need help? Reach out to our support team anytime.</p>
+      <a href="#" class="btn-outline">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sutera Secure. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../../../router/auth.js"></script>
+  <script src="../../../router/activity/aPassChecker.js"></script>
+  <script src="../../../router/activity/aPassGenerator.js"></script>
+  <script type="module" src="../../../router/activity/aEncrypt.js"></script>
+
+  <script type="module">
+    import { showSuccessToast, showErrorToast } from '../../../../js/toast.js';
+    window.showSuccessToast = showSuccessToast;
+    window.showErrorToast = showErrorToast;
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.get('refresh') === 'true' && !sessionStorage.getItem('refreshed')) {
+      sessionStorage.setItem('refreshed', 'true');
+      window.location.reload();
+    } else {
+      sessionStorage.removeItem('refreshed');
+    }
+  });
+
+  window.onpopstate = function () {
+    const refreshRequired = localStorage.getItem("refreshRequired");
+
+    if (refreshRequired === "true") {
+      console.log("🔄 Refreshing Landing Page for Updated Username...");
+      localStorage.removeItem("refreshRequired");
+      window.location.reload();
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const username = localStorage.getItem("username") || "Admin";
+    console.log("🔵 Username Display:", username);
+    document.getElementById("usernameDisplay").textContent = username;
+  });
+</script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const token = localStorage.getItem("token");
+      console.log("token ", token);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll("a[href^='#']").forEach(link => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const targetId = this.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Prevent back navigation after logout
+      window.onpopstate = function () {
+        window.location.replace("/page/signIn.html");
+      };
+    });
+
+    function openPopup() {
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+
+    // Close when clicking outside the form
+    window.onclick = function (event) {
+      let popup = document.getElementById("popupForm");
+      if (event.target === popup) {
+        popup.style.display = "none";
+      }
+    };
+
+
+    function openPopup() {
+      document.getElementById("popupPricing").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupPricing").style.display = "none";
+    }
+
+    // Close when clicking outside the form
+    window.onclick = function (event) {
+      let popup = document.getElementById("popupPricing");
+      if (event.target === popup) {
+        popup.style.display = "none";
+      }
+    };
+
+
+    const activities = {
+      "password-generator": `
+      <section class="password-generator" id="password-generator">
+      <div class="container">
+        <h2>Password Generator</h2>
+        <p>Create strong and secure passwords with customizable options.</p>
+
+        <div class="password-type">
+          <button class="toggle-btn active" onclick="setMode('random'); generatePassword()">Random</button>
+          <button class="toggle-btn" onclick="setMode('memorable'); generatePassword()">Memorable</button>
+          <button class="toggle-btn" onclick="setMode('pin'); generatePassword()">PIN</button>
+        </div>
+
+        <form id="passwordForm" class="form-box">
+          <div class="form-group">
+            <label for="minLength">Characters</label>
+            <input type="range" id="minLength" min="6" max="30" value="15"
+              oninput="updateSliderValue(this.value); generatePassword()">
+            <span id="sliderValue">15</span>
+          </div>
+
+          <div class="form-group options random-options">
+            <label class="switch">
+              <input type="checkbox" id="includeNumbers" checked onchange="generatePassword()">
+              <span class="slider round"></span> Numbers
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="includeSpecial" onchange="generatePassword()">
+              <span class="slider round"></span> Symbols
+            </label>
+          </div>
+
+          <div class="form-group options memorable-options" style="display: none;">
+            <label class="switch">
+              <input type="checkbox" id="capitalizeFirst" onchange="generatePassword()">
+              <span class="slider round"></span> Capitalize the first letter
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="useFullWords" checked onchange="generatePassword()">
+              <span class="slider round"></span> Use full words
+            </label>
+          </div>
+
+          <div id="generatedPassword" class="generated-password">Generated Password</div>
+
+          <div class="button-group">
+            <button type="button" class="btn-secondary" id="refreshBtn">Refresh password</button>
+            <button type="button" class="btn-primary" id="copyBtn">Copy password</button>
+          </div>
+        </form>
+     </div>
+  </section>
+    `,
+
+      "password-checker": `
+      <section class="password-checker">
+        <h2>Password Strength Checker</h2>
+        <p>Test your password's strength to ensure maximum security.</p>
+        <form id="passwordCheckerForm" class="form-box">
+          <div class="form-group">
+            <label for="passwordInput">Enter your password</label>
+            <input type="text" id="passwordInput" placeholder="Type your password..." oninput="checkPasswordStrength()">
+          </div>
+
+          <div id="passwordStrength" class="password-strength">Strength: N/A</div>
+          <div id="passwordAdvice" class="password-advice"></div>
+        </form>
+      </section>
+    `,
+
+      "encryption": `
+      <section class="encryption" id="encryption">
+    <div class="container">
+      <h2>Encryption Activity</h2>
+      <p>Encrypt and decrypt text securely.</p>
+
+      <div class="explanation">
+        <h3>How to Use Encryption Activity:</h3>
+        <p>Encryption helps you protect your sensitive information by converting it into a coded format that can only be
+          decoded using a specific key.</p>
+        <ul>
+          <li>To encrypt text, enter the desired text in the "Enter text to encrypt" field.</li>
+          <li>Provide a strong encryption key (e.g., a combination of letters, numbers, and symbols) in the "Enter
+            encryption key" field.</li>
+          <li>Click the <b>Encrypt</b> button to generate an encrypted string.</li>
+          <li>To decrypt text, paste the encrypted text back into the "Enter text to encrypt" field, and provide the
+            same key used for encryption.</li>
+          <li>Click the <b>Decrypt</b> button to reveal the original text.</li>
+        </ul>
+        <p><strong>Important:</strong> Ensure your encryption key is kept secure and not shared publicly to protect your
+          data.</p>
+      </div>
+
+      <form id="encryptionForm" class="form-box">
+        <div class="form-group">
+          <label for="textToEncrypt">Enter text to encrypt</label>
+          <textarea id="textToEncrypt" placeholder="Type text here..." rows="3"></textarea>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn-primary" onclick="encryptText()">Encrypt</button>
+          <button type="button" class="btn-secondary" onclick="decryptText()">Decrypt</button>
+        </div>
+
+        <div id="encryptionResult" class="encryption-result">Result: N/A</div>
+
+        <div id="storeButtonContainer" style="display: none;">
+          <button type="button" class="btn-secondary" onclick="storeEncryptedText()">Store</button>
+        </div>
+        
+      </form>
+    </div>
+  </section>
+    `,
+
+      "password-stored": `
+    <section class="stored-passwords" id="stored-passwords">
+    <div class="container">
+      <h2>Stored Passwords List</h2>
+      <div class="stored-list">
+        <ul id="storedPasswords"></ul> <!-- Pastikan elemen ini wujud -->
+      </div>
+    </div>
+</section>
+
+    `,
+
+    };
+
+    function showActivity(activity) {
+      document.getElementById("activity-content").innerHTML = activities[activity];
+      document.getElementById("popup-activity").style.display = "flex";
+
+      // Attach event listeners for Refresh and Copy buttons
+      if (activity === 'password-generator') {
+        document.getElementById('refreshBtn').addEventListener('click', generatePassword);
+        document.getElementById('copyBtn').addEventListener('click', function () {
+          const passwordText = document.getElementById('generatedPassword').innerText;
+          navigator.clipboard.writeText(passwordText);
+          showSuccessToast("Password copied to clipboard!");
+        });
+
+        // Auto-generate password on load
+        generatePassword();
+      }
+
+      if (activity === 'password-stored') {
+        // Delay untuk pastikan popup dimuat dahulu sebelum data dipaparkan
+        setTimeout(() => {
+          displayStoredPasswords();
+        }, 300);  // Delay pendek untuk elak elemen tiada semasa dipanggil
+      }
+    }
+
+    function closeActivity() {
+      document.getElementById("popup-activity").style.display = "none";
+    }
+
+    // Tutup popup jika klik di luar kandungan
+    window.onclick = function (event) {
+      const popup = document.getElementById("popup-activity");
+      if (event.target === popup) {
+        closeActivity();
+      }
+    };
+
+
+
+  </script>
+  <script type="module" src="../../../router/logout.js" defer></script>
+</body>
+
+</html>

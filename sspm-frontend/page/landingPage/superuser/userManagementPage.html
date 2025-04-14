@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Users - Sutera Secure</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <link rel="icon" href="../images/sspmlogo.png" type="image/png">
+  <link rel="stylesheet" href="../../../style/LpAdmin.css">
+  <link rel="stylesheet" href="../../../style/UMsuperuser.css">
+  <style>
+ 
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">Sutera<span>Secure Superuser</span></h1>
+      <button class="btn-back" onclick="goBack()">⬅️ Back</button>
+    </div>
+  </header>
+  <section class="user-management">
+    <h2>User Management</h2>
+    <p>Manage users by adding or removing accounts.</p>
+    <button class="btn-add" onclick="openPopup()">Add User</button>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="userList">
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Edit User Popup -->
+  <!-- <div class="edit-popup" id="editPopup">
+    <h2>Edit User Role</h2>
+    <input type="hidden" id="editUserEmail">
+    <label for="editUserRole">Select New Role:</label>
+    <select id="editUserRole">
+      <option value="Superuser">Superuser</option>
+      <option value="User">User</option>
+    </select>
+    <div class="edit-popup-buttons">
+      <button type="button" class="btn-gradient" onclick="updateUserRole()">Update</button>
+      <button class="btn-outline" onclick="closeEditPopup()">Cancel</button>
+    </div>
+  </div> -->
+  
+  <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+  <div class="popup" id="popup">
+    <h2>Add New User</h2>
+
+    <input type="email" id="newUserEmail" placeholder="Enter Email" required
+      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+
+    <!-- Role Dropdown -->
+    <select id="newUserRole">
+      <option value="User">User</option>
+    </select>
+
+    <div class="popup-buttons">
+      <button type="Add" class="btn-save" onclick="saveUser()">Save</button>
+      <button class="btn-outline" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+  <script type="module" src="../../../router/auth.js"></script>
+  <script type="module" src="../../../router/SupUserManagement.js"></script>
+  
+  <script>
+    // Navigasi ke halaman utama dengan parameter untuk trigger animasi
+    function goBack() {
+      window.location.href = "/page/landingPage/superuser/landingPage.html?fade=true";
+    }
+
+    // Aktifkan efek fade-in jika URL mengandungi parameter `?fade=true`
+    window.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('fade') === 'true') {
+        document.body.classList.add("fade-in"); // Aktifkan animasi
+      }
+    });
+
+
+  </script>
+
+</body>
+
+</html>

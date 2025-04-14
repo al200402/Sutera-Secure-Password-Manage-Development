@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Update Profile - Sutera Secure</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="icon" href="../images/sspmlogo.png" type="image/png">
+    <link rel="stylesheet" href="../style/profile.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Sutera<span>Secure Profile</span></h1>
+            <button class="btn-back" onclick="goBack()">⬅️ Back</button>
+        </div>
+    </header>
+
+    <div class="container1">
+        <h2>Update Profile</h2>
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" disabled>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <input type="text" id="role" disabled>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+            <button type="submit" class="btn-gradient">Update Profile</button>
+        </form>
+    </div>
+
+    <script type="module" src="../../../router/auth.js"></script>
+    <script type="module" src="../../../router/update_profile.js"></script>
+
+    <script>
+        function goBack() {
+            const role = localStorage.getItem('role') || 'unknown';
+            console.log("🟡 Role:", role);
+
+            // ✅ Paksa refresh dengan menandakan refresh diperlukan
+            localStorage.setItem('refreshRequired', 'true');
+            document.body.classList.add('fade-out'); // ✨ Fade-out sebelum berpindah halaman
+
+            setTimeout(() => {
+                if (role === 'Admin') {
+                    console.log("✅ Navigating to Admin Landing Page");
+                    window.location.href = '/page/landingPage/admin/landingpage.html?fade=true&refresh=true';
+                } else if (role === 'Superuser') {
+                    console.log("✅ Navigating to Superuser Landing Page");
+                    window.location.href = '/page/landingPage/superuser/landingpage.html?fade=true&refresh=true';
+                } else if (role === 'User') {
+                    console.log("✅ Navigating to Superuser Landing Page");
+                    window.location.href = '/page/landingPage/user/landingpage.html?fade=true&refresh=true';  // ➡️ Fallback jika role tiada
+                } else {
+                    console.log("❌ Role Undefined — Navigating to Fallback Page");
+                    window.location.href = '/page/signIn.html';  // ➡️ Fallback jika role tiada
+                }
+            }, 500); // ⏱️ Delay supaya animasi berjalan dengan sempurna
+        }
+    </script>
+
+</body>
+
+</html>

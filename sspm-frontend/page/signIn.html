@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Sutera Secure</title>
+  <link rel="stylesheet" href="../style/signIn.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <link rel="icon" href="../images/sspmlogo.png" type="image/png">
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <nav>
+        <h1 class="logo">Sutera<span>Secure</span></h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sign In Section -->
+  <section class="sign-in-section">
+    <div class="sign-in-container">
+      <div class="illustration">
+        <img src="../images/security2.webp" alt="Security Illustration" class="illustration-image">
+      </div>
+
+      <div class="sign-in-card">
+        <h2>Welcome back!</h2>
+        <p>Please sign in to your account.</p>
+
+        <!-- Email Input Section -->
+        <form id="signInForm" class="sign-in-form">
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <button type="button" id="checkEmailButton" class="btn-gradient">Next</button>
+
+          <!-- Password Section (Initially Hidden) -->
+          <div id="passwordSection" style="display: none; position: relative;">
+              <input type="password" id="password" name="password" placeholder="Enter your password">
+              <span class="toggle-password" onclick="togglePassword()">
+                <img src="../../../images/eye-close.png" id="eyeIcon" alt="Show Password">
+              </span>
+            <button type="submit" class="btn-gradient">Sign In</button>
+          </div>
+
+          <!-- Verify Section (Initially Hidden) -->
+          <div id="verifySection" style="display: none;">
+            <p>Your account is inactive. Please verify.</p>
+            <button type="button" id="verifyButton" class="btn-gradient">Send Code</button>
+            <input type="text" id="verificationCode" placeholder="Enter code">
+            <button type="button" id="confirmVerifyButton" class="btn-gradient">Verify Code</button>
+          </div>
+        </form>
+
+        <p class="sign-in-footer">
+          Don't remember your password? <a href="../page/forgotpassword.html">Forgot password</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="../router/login.js"></script>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sutera Secure. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
+
+<script>
+  function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      eyeIcon.src = "../../../images/eye-open.png";
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.src = "../../../images/eye-close.png";
+    }
+  }
+</script>

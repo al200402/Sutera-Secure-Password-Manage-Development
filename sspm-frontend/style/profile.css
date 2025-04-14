@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header Styles*/
+header {
+    background: linear-gradient(135deg, #1e3a8a, #4a90e2);
+    padding: 20px 40px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Spacing */
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header .logo span {
+    color: #ffd700;
+}
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+header .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+header .btn-outline {
+    border: 2px solid white;
+    color: white;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header .btn-outline:hover {
+    background: white;
+    color: #4a90e2;
+}
+
+header .btn-outline-logout {
+    border: 2px solid white;
+    color: white;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header .btn-outline-logout:hover {
+    background: white;
+    color: #4a90e2;
+}
+
+/* Back Button Styling */
+.btn-back {
+    background: #fff;
+    border: 2px solid #4a90e2;
+    color: #4a90e2;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #4a90e2;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.container1 {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: block;
+}
+
+.btn-gradient {
+    background: linear-gradient(to right, #4a90e2, #007bff);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #007bff, #4a90e2);
+}

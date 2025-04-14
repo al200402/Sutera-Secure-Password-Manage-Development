@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Superuser Dashboard - Sutera Secure</title>
+  <link rel="icon" href="../images/sspmlogo.png" type="image/png">
+  <link rel="stylesheet" href="../../../style/LpSuperuser.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <link rel="icon" href="../images/sspmlogo.png" type="image/png">
+</head>
+
+<body class="fade-in">
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <h1 class="logo">Sutera<span>Secure Superuser</span></h1>
+      <ul class="nav-links">
+        <li><a href="#used-dashboard">User Dashboard</a></li>
+        <li><a href="../../profile.html">Profile</a></li>
+        <li><a href="#" id="logoutButton" class="btn-outline-logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>Welcome, <span id="usernameDisplay">Superuser</span></h1>
+        <p>Oversee the system, manage configurations, and ensure top-level security.</p>
+        <a href="#system-config" class="btn-gradient">Manage System</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER DASHBOARD -->
+  <section class="user-dashboard" id="used-dashboard">
+    <h2 class="section-title user-title">👤 User Overview</h2>
+    <div class="dashboard-grid user-dashboard">
+      <div class="dashboard-card user-card">
+        <h3>Active Users</h3>
+        <p id="activeUsersData">Loading...</p>
+      </div>
+      <div class="dashboard-card user-card">
+        <h3>Total Users</h3>
+        <p id="totalUsersData">Loading...</p>
+      </div>
+      <div class="dashboard-card user-card">
+        <h3>Inactive Users</h3>
+        <p id="inactiveRegularUsers">Loading...</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- System Configuration Section -->
+  <section class="system-config" id="system-config">
+    <div class="container">
+      <h2>User Management</h2>
+      <p>View, add, and manage users efficiently.</p>
+      <a href="userManagementPage.html" class="btn-outline">View Users</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sutera Secure. Superuser Panel.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../../../router/auth.js"></script>
+  <script type="module" src="../../../router/logout.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const token = localStorage.getItem("token");
+      const userData = JSON.parse(localStorage.getItem("userData"));
+
+      // ✅ Paparkan data dari `localStorage` dahulu jika ada
+      if (userData) {
+        document.getElementById('activeUsersData').textContent = userData.activeRegularUsers || 0;
+        document.getElementById('totalUsersData').textContent = userData.regularUsers || 0;
+        document.getElementById('inactiveRegularUsers').textContent = userData.inactiveRegularUsers || 0;
+      }
+
+      // ✅ Ambil data terkini melalui API untuk memastikan data sentiasa up-to-date
+      try {
+        const response = await fetch("http://localhost:5028/api/SSPM/user-list", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({ role: "All" })
+        });
+
+        const data = await response.json();
+        console.log("📊 Statistik Pengguna Diterima dari API:", data);
+
+        if (data.Code === 200) {
+          document.getElementById('activeUsersData').textContent = userData.ActiveUsers || 0;
+          document.getElementById('totalUsersData').textContent = userData.regularUsers || 0;
+          document.getElementById('inactiveRegularUsers').textContent = userData.InactiveUsers || 0;
+
+          // ✅ Kemas kini `localStorage` dengan data terbaru
+          localStorage.setItem("userData", JSON.stringify(data));
+        }
+      } catch (error) {
+        console.error("❌ Ralat semasa mendapatkan data pengguna:", error);
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+
+      if (urlParams.get('refresh') === 'true' && !sessionStorage.getItem('refreshed')) {
+        sessionStorage.setItem('refreshed', 'true');
+        window.location.reload();
+      } else {
+        sessionStorage.removeItem('refreshed');
+      }
+    });
+
+    window.onpopstate = function () {
+      const refreshRequired = localStorage.getItem("refreshRequired");
+
+      if (refreshRequired === "true") {
+        console.log("🔄 Refreshing Landing Page for Updated Username...");
+        localStorage.removeItem("refreshRequired");
+        window.location.reload();
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const username = localStorage.getItem("username") || "Superuser";
+      console.log("🔵 Username Display:", username);
+      document.getElementById("usernameDisplay").textContent = username;
+    });
+
+
+  </script>
+
+  <script>
+    // Ensure anchor links work as expected
+    document.querySelectorAll("a[href^='#']").forEach(link => {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    // Prevent back navigation after logout
+    window.onpopstate = function () {
+      window.location.replace("/page/signIn.html");
+    };
+
+    window.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('fade') === 'true') {
+        document.body.classList.add("fade-in");  // ✅ Aktifkan animasi fade-in
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+
+  .user-table th {
+    background: #4a90e2;
+    color: white;
+  }
+
+  .user-table td {
+    background: #fff;
+  }
+
+  /* Add User Button */
+  .btn-add {
+    background: linear-gradient(to right, #28a745, #218838);
+    /* Green gradient for success */
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-add:hover {
+    background: linear-gradient(to right, #218838, #1e7e34);
+    /* Darker green on hover */
+    transform: scale(1.05);
+  }
+
+  /* Save Button */
+  .btn-save {
+    background: linear-gradient(to right, #17a2b8, #138496);
+    /* Teal gradient for Save */
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-save:hover {
+    background: linear-gradient(to right, #138496, #117a8b);
+    /* Darker teal on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+  }
+
+  .btn-save:active {
+    background: #117a8b;
+    /* Solid color on click */
+    transform: scale(0.95);
+    /* Slight shrink effect */
+  }
+
+  /* Delete Button */
+  .btn-delete {
+    background: linear-gradient(to right, #e63946, #d90429);
+    /* Red gradient for danger */
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-delete:hover {
+    background: linear-gradient(to right, #d90429, #a10000);
+    /* Darker red on hover */
+    transform: scale(1.05);
+  }
+
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .popup input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  .popup select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: white;
+    appearance: none;
+    /* Removes default dropdown styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+
+  /* Add an arrow to match input fields */
+  .popup select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+  }
+
+  /* Style for consistency */
+  .popup input,
+  .popup select {
+    display: block;
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+  }

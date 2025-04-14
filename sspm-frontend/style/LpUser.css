@@ -1,0 +1,542 @@
+/* General Styles */
+body {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: #f0f2f5;
+  padding: 0; /* add */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #003366;
+  padding: 20px 0;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.8s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+header .logo span {
+  color: #FFD700;
+}
+
+header .nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #0056b3;
+}
+
+header .nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+header .nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url('../../../../images/3.jpg') no-repeat center center/cover;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1; 
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2; 
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-primary-gold {
+  background: #FFD700 !important;
+  color: #000 !important;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;  
+  display: inline-block;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.btn-primary:hover {
+  background: #FFC107 !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+  transform: scale(1.05); 
+}
+
+/* Features */
+.features {
+  padding: 60px 20px;
+  background: #f4f4f4;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.feature-card {
+  background: #fff;
+  border: 2px solid #003366;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #4a90e2;
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 60px 20px;
+  background: #ffffff;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.testimonial-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.testimonial-card {
+  flex: 1;
+  background: #4a90e2;
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card h4 {
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* FAQ Section */
+.faq {
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.faq h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  background: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+/* Call to Action */
+.cta {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #0078FF, #002D72);  
+  color: #ffffff;
+  text-align: center;
+}
+
+.cta h2 {
+  color: #ffffff; 
+  font-weight: bold;
+}
+
+.cta p {
+  color: #e0e0e0; 
+}
+
+.cta .btn-primary {
+  background: #FFD700;
+  color: #003366;
+  padding: 10px 25px;
+}
+
+/* Contact */
+.contact {
+  padding: 60px 20px;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  padding: 12px 25px;
+  color: #007bff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer .social-icons {
+  margin-top: 10px;
+}
+
+footer .social-icons a {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: #ffd700;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Popup Container */
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Popup Content */
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  text-align: center;
+  position: relative;
+  animation: slideIn 0.4s ease-in-out;
+}
+
+.popup-container .popup-content {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.close-btn {
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Close Button Bottom */
+.close-btn-bottom {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Pricing Card */
+.pricing-card {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Featured Plan */
+.featured {
+  background: #007bff;
+  color: white;
+}
+
+.featured .price {
+  color: yellow;
+}
+
+/* Hover Effect on Pricing Cards */
+.pricing-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Price Text */
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin: 10px 0;
+}
+
+/* Features List */
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-card li {
+  padding: 5px 0;
+}
+
+.security-tools {
+  background: linear-gradient(135deg, #1B3A57, #3A6EA5);
+  padding: 60px 20px;
+  color: #ffffff;
+}
+
+.split-screen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 40px 20px;
+}
+
+.split-content {
+  flex: 1;
+}
+
+.activity-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.activity-card {
+  background: linear-gradient(145deg, #004080, #00A1FF); 
+  color: #ffffff;      
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-card .icon {
+  background: #0078FF;   /* Ikon dalam bulatan biru gelap */
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 120, 255, 0.5);
+}
+
+.activity-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+.btn-primary-blue{
+  background: linear-gradient(90deg, #0078FF, #0056B3);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #0056B3, #0078FF);
+}
+
+/* Popup for Activities */
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

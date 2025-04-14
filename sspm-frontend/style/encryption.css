@@ -1,0 +1,106 @@
+.encryption .container {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    border: 3px solid #0078FF;
+}
+
+.encryption h2 {
+    color: #0078FF;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.encryption .explanation {
+    background: #f0f7ff;
+    border-left: 5px solid #0078FF;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.encryption .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.encryption .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.encryption textarea,
+.encryption input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #0078FF;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.encryption textarea:focus,
+.encryption input:focus {
+    border-color: #0056b3;
+}
+
+.encryption .button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.encryption .btn-primary,
+.encryption .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.encryption .btn-primary {
+    background: #0078FF;
+    color: #fff;
+}
+
+.encryption .btn-primary:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.encryption .btn-secondary {
+    background: transparent;
+    border: 2px solid #0078FF;
+    color: #0078FF;
+}
+
+.encryption .btn-secondary:hover {
+    background: #e3f2fd;
+    transform: scale(1.05);
+}
+
+.encryption .encryption-result {
+    background: #e3f2fd;
+    border: 2px solid #0078FF;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #0056b3;
+}
